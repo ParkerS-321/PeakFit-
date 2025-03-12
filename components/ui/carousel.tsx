@@ -92,7 +92,7 @@ export function Carousel({ images }: CarouselProps) {
         onTouchEnd={handleTouchEnd}
       >
         <div 
-          className={`flex transition-transform duration-300 ease-out will-change-transform`}
+          className="flex transition-transform duration-300 ease-out will-change-transform"
           style={{ 
             transform: `translateX(calc(-${currentIndex * 100}% - ${dragOffset}px))`,
           }}
@@ -100,19 +100,20 @@ export function Carousel({ images }: CarouselProps) {
           {images.map((image, index) => (
             <div
               key={index}
-              className="min-w-full flex-shrink-0 px-4 md:px-8"
-              style={{ scrollSnapAlign: 'start' }}
+              className="min-w-full flex-shrink-0 flex flex-col items-center"
             >
-              <p className="text-center text-sm font-medium text-neutral-600 mb-4">
+              <p className="text-center text-sm font-medium text-neutral-600 mb-4 px-4">
                 {image.label}
               </p>
-              <div className="relative aspect-[4/3] md:aspect-[16/9]">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-contain"
-                  draggable="false"
-                />
+              <div className="w-full px-4 md:px-8">
+                <div className="relative aspect-[4/3] md:aspect-[16/9] max-w-[90vw] md:max-w-[800px] mx-auto">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain"
+                    draggable="false"
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -121,7 +122,7 @@ export function Carousel({ images }: CarouselProps) {
 
       <button
         onClick={handlePrev}
-        className="absolute left-2 top-[45%] -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white/90 transition-colors md:left-4"
+        className="absolute left-2 top-[45%] -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white/90 transition-colors md:left-4 z-10"
         aria-label="Previous image"
       >
         <ChevronLeft className="w-6 h-6" />
@@ -129,7 +130,7 @@ export function Carousel({ images }: CarouselProps) {
 
       <button
         onClick={handleNext}
-        className="absolute right-2 top-[45%] -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white/90 transition-colors md:right-4"
+        className="absolute right-2 top-[45%] -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white/90 transition-colors md:right-4 z-10"
         aria-label="Next image"
       >
         <ChevronRight className="w-6 h-6" />
