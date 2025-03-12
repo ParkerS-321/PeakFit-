@@ -83,9 +83,9 @@ export function Carousel({ images }: CarouselProps) {
   }, [handleNext, handlePrev]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full overflow-hidden">
       <div 
-        className="relative overflow-hidden rounded-lg touch-pan-x"
+        className="relative touch-pan-x"
         ref={containerRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -100,13 +100,14 @@ export function Carousel({ images }: CarouselProps) {
           {images.map((image, index) => (
             <div
               key={index}
-              className="min-w-full flex-shrink-0 flex flex-col items-center"
+              className="w-full flex-shrink-0 flex flex-col items-center justify-center"
+              style={{ flex: '0 0 100%' }}
             >
-              <p className="text-center text-sm font-medium text-neutral-600 mb-4 px-4">
-                {image.label}
-              </p>
-              <div className="w-full px-4 md:px-8">
-                <div className="relative aspect-[4/3] md:aspect-[16/9] max-w-[90vw] md:max-w-[800px] mx-auto">
+              <div className="w-full max-w-[90vw] md:max-w-[800px] px-4 md:px-8">
+                <p className="text-center text-sm font-medium text-neutral-600 mb-4">
+                  {image.label}
+                </p>
+                <div className="relative aspect-[4/3] md:aspect-[16/9]">
                   <img
                     src={image.src}
                     alt={image.alt}
