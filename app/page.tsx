@@ -190,7 +190,7 @@ export default function Page() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-20 pl-6 bg-white relative">
+        <section className="py-16 pl-6 bg-white relative">
           <div className="max-w-[1300px] mx-auto">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Mobile: Image appears first, Desktop: Content appears first */}
@@ -235,10 +235,10 @@ export default function Page() {
         </section>
 
         {/* How it Works Section */}
-        <section id="how-it-works" className="py-20 px-6 bg-[#F8F9FB] scroll-mt-20">
+        <section id="how-it-works" className="py-12 px-6 bg-[#F8F9FB] scroll-mt-20">
           <div className="max-w-[1300px] mx-auto">
-            <div className="pt-16">
-              <div className="mb-12 lg:pl-0">
+            <div className="pt-8">
+              <div className="mb-8 lg:pl-0">
                 <h2 className={`text-4xl font-bold ${inter.className}`}>How does PeakFit AI work?</h2>
               </div>
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
@@ -279,10 +279,10 @@ export default function Page() {
         </section>
 
         {/* Accuracy Section */}
-        <section id="why-peakfit" className="py-20 px-6 bg-[#F8F9FB] scroll-mt-20">
+        <section id="why-peakfit" className="py-12 px-6 bg-[#F8F9FB] scroll-mt-20">
           <div className="max-w-[1300px] mx-auto">
-            <div className="pt-16">
-              <div className="mb-12 lg:pl-0">
+            <div className="pt-8">
+              <div className="mb-8 lg:pl-0">
                 <h2 className={`text-4xl font-bold ${inter.className}`}>Why PeakFit AI?</h2>
               </div>
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
@@ -322,7 +322,7 @@ export default function Page() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6 bg-black text-white">
+        <section className="py-16 px-6 bg-black text-white">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className={`text-4xl font-bold mb-4 ${inter.className}`}>Try PeakFit AI today.</h2>
             <p className="text-xl text-neutral-300 mb-8">Personalized workout tracking with just a few clicks.</p>
