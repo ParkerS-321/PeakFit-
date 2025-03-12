@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "PeakFit AI",
-  description: "Create personalized workout plans with just a few clicks.",
+  description: "Create personalized workout plans with AI-powered insights. Join the waitlist today!",
   icons: {
     icon: [
       {
