@@ -2,9 +2,10 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Carousel } from "@/components/ui/carousel"
+import { joinWaitlist } from "./actions"
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
@@ -19,6 +20,9 @@ const inter = Inter({
 })
 
 export default function Page() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -60,6 +64,28 @@ export default function Page() {
 
     loadTally();
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
+
+    setIsSubmitting(true)
+    setStatus({ type: null, message: '' })
+
+    try {
+      const result = await joinWaitlist(email)
+      if (result.success) {
+        setStatus({ type: 'success', message: result.message || 'Thanks for joining our waitlist!' })
+        setEmail('')
+      } else {
+        setStatus({ type: 'error', message: result.error || 'Something went wrong. Please try again.' })
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className={`flex flex-col min-h-screen bg-[#F8F9FB] text-black ${inter.className}`}>
@@ -211,15 +237,38 @@ export default function Page() {
                   tailored progression. Stay on track with personalized insights and achievements to help you 
                   level up!
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 items-center">
-                  <div className="relative flex-1 w-full max-w-sm">
-                    <input 
-                      type="email" 
-                      placeholder="Enter your email" 
-                      className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:outline-none focus:border-neutral-400 text-sm"
-                    />
+                <div className="bg-gradient-to-r from-neutral-50 via-white to-neutral-50 p-6 rounded-xl border border-neutral-100 shadow-lg">
+                  <div className="mb-4">
+                    <h3 className="text-lg font-semibold mb-1">Join the Waitlist Today!</h3>
+                    <p className="text-sm text-neutral-600">Be the first to experience AI-powered fitness.</p>
                   </div>
-                  <Button className="w-full sm:w-auto bg-black text-white hover:bg-neutral-800">Join the Waitlist</Button>
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <div className="relative flex-1 w-full">
+                      <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-3.5 rounded-lg border-2 border-neutral-200 focus:outline-none focus:border-black text-base shadow-sm"
+                        required
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-black text-white hover:bg-neutral-800 py-6 text-base font-medium shadow-lg transition-all duration-200 hover:shadow-xl"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Joining...' : '🚀 Join the Waitlist'}
+                    </Button>
+                  </form>
+                  {status.type && (
+                    <p className={`mt-3 text-sm ${status.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                      {status.message}
+                    </p>
+                  )}
+                  <p className="text-xs text-center text-neutral-500 mt-3">
+                    Join {Math.floor(Math.random() * 50) + 150}+ others waiting to transform their fitness journey
+                  </p>
                 </div>
               </div>
               {/* Desktop: Image appears second */}
@@ -326,16 +375,31 @@ export default function Page() {
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className={`text-4xl font-bold mb-4 ${inter.className}`}>Try PeakFit AI today.</h2>
             <p className="text-xl text-neutral-300 mb-8">Personalized workout tracking with just a few clicks.</p>
-            <div className="flex gap-4 items-center max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex gap-4 items-center max-w-md mx-auto">
               <div className="relative flex-1">
                 <input 
                   type="email" 
                   placeholder="Enter your email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-white/40 text-white placeholder:text-neutral-400 text-sm"
+                  required
                 />
               </div>
-              <Button size="lg" className="bg-white text-black hover:bg-neutral-200">Join the Waitlist</Button>
-            </div>
+              <Button 
+                type="submit"
+                size="lg" 
+                className="bg-white text-black hover:bg-neutral-200"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Joining...' : 'Join the Waitlist'}
+              </Button>
+            </form>
+            {status.type && (
+              <p className={`mt-4 text-sm ${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                {status.message}
+              </p>
+            )}
           </div>
         </section>
 
