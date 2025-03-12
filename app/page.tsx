@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
 import { Playfair_Display, Inter } from 'next/font/google'
+import { Carousel } from "@/components/ui/carousel"
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
@@ -172,7 +173,7 @@ export default function Page() {
           </div>
           <span className={`text-xl font-semibold ${inter.className}`}>PeakFit AI</span>
         </Link>
-        <nav className="flex items-center gap-4 pr-24">
+        <nav className="flex items-center gap-4 flex-1 justify-center lg:justify-end lg:pr-24">
           <div className="relative group">
             <button className="text-sm text-black hover:text-neutral-600">Features</button>
             <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -237,35 +238,38 @@ export default function Page() {
         <section id="how-it-works" className="py-20 px-6 bg-[#F8F9FB] scroll-mt-20">
           <div className="max-w-[1300px] mx-auto">
             <div className="pt-16">
-              <div className="mb-12">
+              <div className="mb-12 lg:pl-0">
                 <h2 className={`text-4xl font-bold ${inter.className}`}>How does PeakFit AI work?</h2>
               </div>
-              <div className="flex flex-col lg:flex-row items-start gap-16">
-                <div className="w-full lg:flex-1 order-1">
-                  <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
+                <div className="w-full lg:w-[40%] order-1">
+                  <p className="text-lg text-neutral-600 leading-relaxed">
                     When you generate a workout plan with PeakFit AI, many things happen. 
                     First, we will use your basic information to understand your goals and current fitness level.
                     Then, you will have the option to upload pictures of your physique and enter information such as available equipment, desired workout time, desired plan length, and more.
                     Finally, our multimodal AI model will combine the results and generate a personalized workout plan for you.
                   </p>
                 </div>
-                <div className="w-full lg:flex-[1.5] flex justify-center lg:justify-end mt-8 lg:mt-0 order-2">
-                  <div className="relative w-full max-w-[800px]">
-                    <div className="absolute w-full flex justify-start px-4 -top-8">
-                      <div className="text-center w-[200px] -ml-8">
-                        <p className="text-sm font-medium text-neutral-600">Upload your physique (optional)</p>
-                      </div>
-                      <div className="text-center w-[200px] ml-[140px]">
-                        <p className="text-sm font-medium text-neutral-600">Enter Plan Details</p>
-                      </div>
-                      <div className="text-center w-[200px] ml-[110px]">
-                        <p className="text-sm font-medium text-neutral-600">Get your plan</p>
-                      </div>
-                    </div>
-                    <img 
-                      src="/images/plan_flow5-Photoroom.png" 
-                      alt="PeakFit AI Exercise Page" 
-                      className="w-full h-auto max-w-full lg:max-h-[1500px] object-contain px-4 lg:px-0"
+                <div className="w-full lg:w-[60%] flex justify-center lg:justify-end order-2 lg:-mt-12">
+                  <div className="relative w-full max-w-[700px]">
+                    <Carousel
+                      images={[
+                        {
+                          src: "/images/physique_1.png",
+                          alt: "Upload your physique",
+                          label: "Upload your physique (optional)"
+                        },
+                        {
+                          src: "/images/details.png",
+                          alt: "Enter plan details",
+                          label: "Enter Plan Details"
+                        },
+                        {
+                          src: "/images/plan_progress.png",
+                          alt: "Get your personalized plan",
+                          label: "Get your plan"
+                        }
+                      ]}
                     />
                   </div>
                 </div>
@@ -278,12 +282,12 @@ export default function Page() {
         <section id="why-peakfit" className="py-20 px-6 bg-[#F8F9FB] scroll-mt-20">
           <div className="max-w-[1300px] mx-auto">
             <div className="pt-16">
-              <div className="mb-12">
+              <div className="mb-12 lg:pl-0">
                 <h2 className={`text-4xl font-bold ${inter.className}`}>Why PeakFit AI?</h2>
               </div>
-              <div className="flex flex-col lg:flex-row gap-16 items-start">
-                <div className="w-full lg:flex-1 flex flex-col justify-center order-1">
-                  <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+                <div className="w-full lg:w-[40%] flex flex-col justify-center order-1">
+                  <p className="text-lg text-neutral-600 leading-relaxed">
                     Working out can be both intimidating and overwhelming. This is what makes PeakFit AI so special. We take the thinking out of the
                     gym for you. Simply tell us your goals, and we will generate a personalized workout plan for you that adapts to your progress. No more expensive trainers,
                     no more guessing at the best approach. Just a simple, easy to follow plan. PeakFit AI will give you the tools to level up both in the gym and out.
@@ -303,12 +307,12 @@ export default function Page() {
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:flex-[1.2] flex justify-center lg:justify-end order-2">
+                <div className="w-full lg:w-[60%] flex justify-center lg:justify-end order-2 lg:-mt-12">
                   <div className="relative w-full max-w-[800px]">
                     <img 
                       src="/images/app_stats2.png" 
                       alt="PeakFit AI Exercise Page" 
-                      className="w-full h-auto max-w-full lg:max-h-[1200px] object-contain px-4 lg:px-0"
+                      className="w-full h-auto max-w-full lg:max-h-[700px] object-contain px-4 lg:px-0"
                     />
                   </div>
                 </div>
