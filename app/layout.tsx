@@ -20,29 +20,35 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "PeakFit AI",
-  description: "Create personalized workout plans with just a few clicks.",
-  icons: {
-    icon: [
+  title: 'PeakFit AI | Join the Waitlist',
+  description: 'Create personalized workout plans with AI. Join the waitlist to be the first to experience AI-powered fitness.',
+  openGraph: {
+    title: 'PeakFit AI | Join the Waitlist',
+    description: 'Create personalized workout plans with AI. Join the waitlist to be the first to experience AI-powered fitness.',
+    url: 'https://peakfit.ai',
+    siteName: 'PeakFit AI',
+    images: [
       {
         url: '/images/barbell_panda.png',
-        type: 'image/png',
-        sizes: '32x32'
-      },
-      {
-        url: '/images/barbell_panda.png',
-        type: 'image/png',
-        sizes: '16x16'
+        width: 800,
+        height: 800,
+        alt: 'PeakFit AI Logo',
       }
     ],
-    apple: {
-      url: '/images/barbell_panda.png',
-      type: 'image/png',
-      sizes: '180x180'
-    },
-    shortcut: { url: '/images/barbell_panda.png' }
+    locale: 'en_US',
+    type: 'website',
   },
-  manifest: "/manifest.json",
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PeakFit AI | Join the Waitlist',
+    description: 'Create personalized workout plans with AI. Join the waitlist to be the first to experience AI-powered fitness.',
+    images: ['/images/barbell_panda.png'],
+  },
+  icons: {
+    icon: '/images/barbell_panda.png',
+    shortcut: '/images/barbell_panda.png',
+    apple: '/images/barbell_panda.png',
+  }
 }
 
 export default function RootLayout({
