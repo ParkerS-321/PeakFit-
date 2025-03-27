@@ -470,14 +470,12 @@ export default function Page() {
               <span className={`text-xl font-semibold ${inter.className}`}>PeakFit AI</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <a
-                href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/terms"
                 className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
               >
                 Terms of Service
-              </a>
+              </Link>
               <span className="text-neutral-400">•</span>
               <Link
                 href="/privacy"
