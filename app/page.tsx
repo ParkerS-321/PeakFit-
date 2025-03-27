@@ -217,14 +217,14 @@ export default function Page() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-16 pl-6 bg-white relative">
-          <div className="max-w-[1300px] mx-auto">
+          <div className="max-w-[1500px] mx-auto">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Mobile: Image appears first, Desktop: Content appears first */}
               <div className="w-full lg:hidden mb-8 order-1">
                 <img 
-                  src="/images/hero_flow.png" 
+                  src="/images/new_land_flow.png" 
                   alt="PeakFit AI Plan Page" 
-                  className="w-full h-auto max-h-[500px] object-contain"
+                  className="w-full h-auto max-h-[800px] object-contain"
                 />
               </div>
               <div className="w-full lg:max-w-[450px] pr-8 order-2 lg:order-1">
@@ -232,8 +232,8 @@ export default function Page() {
                   Create personalized workout plans <br />with just a few clicks.
                 </h1>
                 <p className="text-lg lg:text-xl text-neutral-600 mb-8 text-left">
-                  Introducing PeakFit AI, the AI-powered workout tracking app that simplifies working out. 
-                  Snap a photo and enter some basic information, and PeakFit AI will instantly generate a personalized workout plan with
+                  PeakFit AI, the AI-powered workout tracking app that simplifies working out. 
+                  Snap a photo (optional) and enter some basic information, and PeakFit AI will instantly generate a personalized workout plan with
                   tailored progression. Stay on track with personalized insights and achievements to help you 
                   level up!
                 </p>
@@ -274,9 +274,9 @@ export default function Page() {
               {/* Desktop: Image appears second */}
               <div className="hidden lg:flex w-full lg:flex-1 justify-end order-2 mt-12 lg:mt-0 pl-16 pr-6">
                 <img 
-                  src="/images/hero_flow.png" 
+                  src="/images/new_land_flow.png" 
                   alt="PeakFit AI Plan Page" 
-                  className="w-auto h-auto max-h-[850px]"
+                  className="w-auto h-auto max-h-[1200px] object-contain"
                 />
               </div>
             </div>
@@ -314,11 +314,62 @@ export default function Page() {
                           label: "Enter Plan Details"
                         },
                         {
-                          src: "/images/plan_progress.png",
+                          src: "/images/plan-view.png",
                           alt: "Get your personalized plan",
                           label: "Get your plan"
                         }
                       ]}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="py-12 px-6 bg-[#F8F9FB] scroll-mt-20">
+          <div className="max-w-[1300px] mx-auto">
+            <div className="pt-8">
+              <div className="mb-8 lg:pl-0">
+                <h2 className={`text-4xl font-bold ${inter.className}`}>PeakFit AI Features</h2>
+              </div>
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
+                <div className="w-full lg:w-[40%] order-1">
+                  <p className="text-lg text-neutral-600 leading-relaxed">
+                    PeakFit AI comes packed with powerful features to enhance your fitness journey. 
+                    Track your workouts with precision, monitor your progress with detailed statistics, 
+                    and get AI-powered guidance throughout your fitness journey. Our intelligent 
+                    workout tracking ensures you're always progressing and staying motivated, while 
+                    our chat feature provides instant support and answers to all your fitness questions.
+                  </p>
+                  <div className="mt-6">
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <span className="mr-2">📝</span>
+                        <span className="text-neutral-600">AI-Powered Workout Plan Generation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">💬</span>
+                        <span className="text-neutral-600">Ask-Peak: Your personal AI fitness coach that will try to any questions related to your workouts</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">🏋️</span>
+                        <span className="text-neutral-600">Streamlined and guided workout sessions</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">📈</span>
+                        <span className="text-neutral-600">Stat and Progress tracking to ensure you're always on track</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="w-full lg:w-[60%] flex justify-center lg:justify-end order-2 lg:-mt-12">
+                  <div className="relative w-full max-w-[800px]">
+                    <img 
+                      src="/images/features3.png" 
+                      alt="PeakFit AI Features" 
+                      className="w-full h-auto max-w-full lg:max-h-[700px] object-contain px-4 lg:px-0"
                     />
                   </div>
                 </div>
@@ -343,13 +394,13 @@ export default function Page() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 lg:mb-0">
                     <div className="bg-white rounded-xl p-6 shadow-sm">
-                      <div className="text-2xl font-bold mb-2">50%</div>
+                      <div className="text-2xl font-bold mb-2" suppressHydrationWarning>50%</div>
                       <div className="text-sm text-neutral-600">
                         Of new gym members quit within the first 6 months
                       </div>
                     </div>
                     <div className="bg-white rounded-xl p-6 shadow-sm">
-                      <div className="text-2xl font-bold mb-2">40%</div>
+                      <div className="text-2xl font-bold mb-2" suppressHydrationWarning>40%</div>
                       <div className="text-sm text-neutral-600">
                         Of people who start working out say they have gym-anxiety
                       </div>
@@ -403,19 +454,37 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Footer Section */}
+        <footer className="bg-white py-8 px-6">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center gap-2 mb-4 md:mb-0">
+              <div className="w-8 h-8">
+                <img src="/images/barbell_panda.png" alt="PeakFit AI Logo" className="w-full h-full object-contain" />
+              </div>
+              <span className={`text-xl font-semibold ${inter.className}`}>PeakFit AI</span>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <a
+                href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
+              >
+                Terms of Service
+              </a>
+              <span className="text-neutral-400">•</span>
+              <Link
+                href="/privacy"
+                className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-neutral-400">•</span>
+              <span className="text-sm text-neutral-600">© 2024 PeakFit AI. All rights reserved.</span>
+            </div>
+          </div>
+        </footer>
       </main>
-
-      {/* Footer */}
-      <footer className="py-8 px-6 text-center text-sm text-neutral-600 bg-white">
-        <p>Copyright © 2025 PeakFit AI LLC</p>
-        <div className="mt-2">
-          <Link href="#" className="hover:text-white">Terms of Service</Link>
-          <span className="mx-2">|</span>
-          <Link href="#" className="hover:text-white">Privacy Policy</Link>
-          <span className="mx-2">|</span>
-          <Link href="#" className="hover:text-white">Contact Support</Link>
-        </div>
-      </footer>
     </div>
   )
 }
