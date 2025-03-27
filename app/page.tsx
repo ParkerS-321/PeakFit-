@@ -203,6 +203,9 @@ export default function Page() {
           <div className="relative group">
             <button className="text-sm text-black hover:text-neutral-600">Features</button>
             <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <Link href="#features" className="block px-4 py-2 text-sm text-black hover:bg-neutral-100">
+                Features
+              </Link>
               <Link href="#how-it-works" className="block px-4 py-2 text-sm text-black hover:bg-neutral-100">
                 How does PeakFit AI work?
               </Link>
@@ -211,6 +214,9 @@ export default function Page() {
               </Link>
             </div>
           </div>
+          <Link href="/blog" className="text-sm text-black hover:text-neutral-600">
+            Blog
+          </Link>
         </nav>
       </header>
 
