@@ -20,11 +20,11 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'PeakFit AI | Join the Waitlist',
-  description: 'Create personalized workout plans with AI. Join the waitlist to be the first to experience AI-powered fitness.',
+  title: 'PeakFit AI | Download Today',
+  description: 'Create personalized workout plans with AI. Download PeakFit AI and start your fitness journey today.',
   openGraph: {
-    title: 'PeakFit AI | Join the Waitlist',
-    description: 'Create personalized workout plans with AI. Join the waitlist to be the first to experience AI-powered fitness.',
+    title: 'PeakFit AI | Download Today',
+    description: 'Create personalized workout plans with AI. Download PeakFit AI and start your fitness journey today.',
     url: 'https://peakfit.ai',
     siteName: 'PeakFit AI',
     images: [
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PeakFit AI | Join the Waitlist',
-    description: 'Create personalized workout plans with AI. Join the waitlist to be the first to experience AI-powered fitness.',
+    title: 'PeakFit AI | Download Today',
+    description: 'Create personalized workout plans with AI. Download PeakFit AI and start your fitness journey today.',
     images: ['/images/barbell_panda.png'],
   },
   icons: {
